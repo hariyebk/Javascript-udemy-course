@@ -1,4 +1,4 @@
-## Notes for the JS Behind the Scenes section.
+## Notes for the JS Behind the Scenes section
 
 - JS Behind the Scenes
   - Call stack - code is executed here
