@@ -1,4 +1,4 @@
-## Notes for the first two introductiary sections of the course
+## Notes for the first two introductiary sections
 
 - JavaScript Fundamentals - Part 1
 

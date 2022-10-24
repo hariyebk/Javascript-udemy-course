@@ -1,4 +1,4 @@
-## Notes for the modal project in the JavaScript in the Browser: DOM and Events section of the course
+## Notes for the modal project in the JavaScript in the Browser: DOM and Events section
 
 - DOM manipulation
   - `document.`- access to all HTML elements and properties

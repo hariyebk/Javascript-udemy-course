@@ -1,4 +1,4 @@
-## Notes for the Developer Skills & Editor Setup section of the course
+## Notes for the Developer Skills & Editor Setup section
 
 - Problem Solving
   - Solving a problem:
