@@ -48,7 +48,7 @@ const restaurant = {
     console.log(mainIng, otherIngs);
   },
 };
-/*
+
 // * Real-world application
 restaurant.orderDelivery({
   time: '22:30',
@@ -246,69 +246,6 @@ restaurant3.owner &&= '<ANONYMOUS>';
 
 console.log(restaurant2, restaurant3);
 
-// * Challenge #1
-
-// Object called game with array with 12 players
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
-
-const [players1, players2] = game.players;
-const [gk, ...fieldPlayers] = players1;
-const allPlayers = [...players1, ...players2];
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-const { team1, x: draw, team2 } = game.odds;
-
-function printGoals(...players) {
-  console.log(players);
-  console.log(`${players.length} goals were scored`);
-}
-
-function printOdds(team1, team2) {
-  team1 > team2 && console.log('Team 2 is favored');
-  team1 < team2 && console.log('Team 1 is favored');
-}
-
-printOdds(team1, team2);
-printGoals(...game.scored);
-
 // * Looping over arrays - for-of loop
 const menuLoopArr = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const dish of menuLoopArr) {
@@ -354,70 +291,6 @@ console.log(messageLoopingO);
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day}, we open at ${open} and close at ${close}`);
 }
-
-// * Challenge #2
-
-// Object called game with array with 12 players
-const game1 = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
-
-for (const [index, player] of game.scored.entries()) {
-  console.log(`Goal ${index + 1}: ${player}`);
-}
-
-for (const [type, odd] of Object.entries(game.odds)) {
-  console.log(
-    `Odd of`,
-    game[type] ? `victory ${game[type]}` : `draw`,
-    `: ${odd}`
-  );
-}
-
-const scorers = {};
-
-for (const player of game.scored) {
-  scorers[player] = scorers[player] + 1 || 1;
-}
-
-console.log(scorers);
 
 // * Sets
 const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Rissoto', 'Pasta']);
@@ -477,52 +350,6 @@ const answer = Number(prompt('Your answer:'));
 
 console.log(question.get(answer === question.get('correct')));
 
-// * Coding Challenge #3
-
-// Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
-
-// 1. Create an array 'events' of the different game events that happened (no duplicates)
-// 2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
-// 3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
-// 4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
-//       [FIRST HALF] 17: ⚽️ GOAL
-
-// GOOD LUCK 😀
-
-const gameEvents = new Map([
-  [17, '⚽️ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽️ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽️ GOAL'],
-  [80, '⚽️ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
-
-//1
-const events = [...new Set(gameEvents.values())];
-console.log(events);
-
-//2
-gameEvents.delete(64);
-console.log(gameEvents);
-
-//3
-console.log(
-  `An event happened, on average, every ${90 / gameEvents.size} minutes`
-);
-
-// 4
-for (const [minute, event] of gameEvents.entries()) {
-  console.log(
-    `[${minute <= 45 ? 'FIRST HALF' : 'SECOND HALF'}] ${minute}: ${event}`
-  );
-}
-
 // * Strings
 const plane = 'A320';
 const airline = 'TAP Air Portugal';
@@ -533,7 +360,7 @@ console.log(plane[1]); // "3"
 // Getting the length of a string
 console.log(plane.length); // "4"
 
-//TODO IndexOf & lastIndexOf
+// * IndexOf & lastIndexOf
 // Getting the position of a letter or a string (case sensitive)
 console.log(airline.indexOf('r')); // "6" - first occurance
 console.log(airline.lastIndexOf('r')); // "10" - last occurance
@@ -551,7 +378,7 @@ console.log(typeof new String('Filip')); // object
 //? ---------------------
 
 // Extracting parts of a string
-//TODO Slice (extract) part of a string
+//* Slice (extract) part of a string
 console.log(airline.slice(4)); // "Air Portugal" - slice starts at 4
 console.log(airline.slice(4, 7)); // "Air" - slice starts at 4 end at 7 (exclusive)
 console.log(airline.slice(0, airline.indexOf(' '))); // "TAP" - slice starts at 0 end at the first "space"
@@ -573,7 +400,7 @@ checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
 
-//TODO ToLowerCase & toUpperCase
+//* ToLowerCase & toUpperCase
 // Converting strings to lower case or upper case
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
@@ -591,12 +418,12 @@ console.log(fixPassName(passenger));
 
 const loginEmail = '  Hello@FiLip.CoM  \n';
 
-//TODO Trim
+//* Trim
 // Gets rid of all whitespace (spaces, enters, ...)
 const normalizedEmail = loginEmail.toLowerCase().trim();
 console.log(normalizedEmail);
 
-//TODO Replace
+//* Replace
 // Replaces a specified string with a different one
 const priceGB = '288,97£';
 const priceUS = priceGB.replace('£', '$').replace(',', '.');
@@ -610,30 +437,30 @@ console.log(announcment.replace(/door/g, 'gate'));
 
 const planeB = 'Airbus A320neo';
 
-//TODO Includes
+//* Includes
 // Return true/false if string includes a specified string
 
 console.log(planeB.includes('A320'));
 
-//TODO StartsWith
+//* StartsWith
 // Return true/false if string starts with a specified string
 console.log(planeB.startsWith('Airb'));
 
-//TODO EndsWith
+//* EndsWith
 // Return true/false if string ends with a specified string
 console.log(planeB.endsWith('neo'));
 
 if (planeB.startsWith('Airbus') && planeB.endsWith('neo'))
   console.log('Part of the new Airbus family');
 
-//TODO Split
+//* Split
 // splits a string according to a given string (divider) into an array
 console.log('a+very+nice+string'.split('+'));
 console.log('Filip Kocian'.split(' '));
 
 const [firstName, lastName] = 'Filip Kocian'.split(' ');
 
-//TODO Join
+//* Join
 // Joins two or more strings in an array into a one with a specified divider
 const fullCorrectName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 
@@ -653,7 +480,7 @@ function capitalizeFirstLetter(name) {
 
 console.log(capitalizeFirstLetter('ann maria smith davis'));
 
-//TODO PadStart & padEnd
+//* PadStart & padEnd
 // Adds a specified string before/after a string
 console.log('Filip'.padStart(25, '-'));
 console.log('Filip'.padEnd(25, '-'));
@@ -668,80 +495,11 @@ function maskCreditCard(number) {
 
 console.log(maskCreditCard(456123456785121546));
 
-//TODO Repeat
+//* Repeat
 // Repeat the same string a given number of times
 const message = 'Bad wheather ... All Departures Delayed ... ';
 
 console.log(message.repeat(5));
-
-// * Coding Challenge #4
-
-// Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
-
-// The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
-
-// THIS TEST DATA (pasted to textarea)
-// underscore_case
-//  first_name
-// Some_Variable
-//   calculate_AGE
-// delayed_departure
-
-// SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
-// underscoreCase      ✅
-// firstName           ✅✅
-// someVariable        ✅✅✅
-// calculateAge        ✅✅✅✅
-// delayedDeparture    ✅✅✅✅✅
-
-// HINT 1: Remember which character defines a new line in the textarea 😉
-// HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
-// HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
-// HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
-
-// Afterwards, test with your own test data!
-
-// GOOD LUCK 😀
-
-// Create the neccessary DOM elements
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
-
-// Get the reference for the elements
-const inputEl = document.querySelector('textarea');
-const btn = document.querySelector('button');
-
-btn.addEventListener('click', () => {
-  // Get the user input
-  const input = inputEl.value;
-
-  // Split the input into separate names
-  const vnames = input.split('\n');
-
-  // Loop over every name
-  for (const [index, vname] of vnames.entries()) {
-    // Trim the word, put it to lower and split it into individual words
-    const words = vname.trim().toLowerCase().split('_');
-    const correctedWord = [];
-
-    // Loop over every word
-    for (const word of words) {
-      // Skip the first word
-      if (word === words[0]) correctedWord.push(word);
-      // Turn the first letter uppercase
-      else correctedWord.push(word.replace(word[0], word[0].toUpperCase()));
-    }
-
-    // Join the corrected words
-    const camelCaseName = correctedWord.join('');
-    // Create the full output as in the assignment
-    const fullOutput = camelCaseName
-      .padEnd(20, ' ')
-      .concat('', '✅'.repeat(index + 1));
-
-    console.log(fullOutput);
-  }
-});
 
 //* String practice
 
@@ -760,4 +518,3 @@ for (const log of flightLogs.split('+')) {
 
   console.log(output);
 }
-*/
