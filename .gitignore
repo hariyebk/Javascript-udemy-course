@@ -1,1 +1,4 @@
 _complete-javascript-course-master
+node_modules
+.parcel-cache
+dist

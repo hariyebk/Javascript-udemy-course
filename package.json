@@ -1,0 +1,32 @@
+{
+  "name": "javascriptcourse",
+  "version": "1.0.0",
+  "description": "lesson on npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel ./15_ModernJS/index.html",
+    "build": "parcel build ./15_ModernJS/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sos321/javascript-course.git"
+  },
+  "keywords": [
+    "course"
+  ],
+  "author": "Filip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sos321/javascript-course/issues"
+  },
+  "homepage": "https://github.com/sos321/javascript-course#readme",
+  "dependencies": {
+    "core-js": "^3.26.1",
+    "lodash-es": "^4.17.21",
+    "regenerator-runtime": "^0.13.11"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  }
+}
